@@ -208,7 +208,7 @@ async function sendSignupEmail(toEmail, name) {
 } 
 
 
-async function sendPasswordResetEmail(email, name, token) {
+async function sendPasswordResetEmail(email,token) {
     try {
         const resetUrl = `${process.env.BASE_URL}/reset-password?token=${token}`;
         
@@ -222,7 +222,7 @@ async function sendPasswordResetEmail(email, name, token) {
                         <img src="upload/logo.png" alt="Black Leopards Academy" style="max-height: 80px;">
                     </div>
                     <h2 style="color: #ff6b00;">Password Reset</h2>
-                    <p>Hello ${name},</p>
+                    <p>Hello</p>
                     <p>We received a request to reset your password. Click the button below to proceed:</p>
                     
                     <p style="margin: 25px 0;">
@@ -832,7 +832,7 @@ app.post('/api/auth/forgot-password', async (req, res) => {
         );
 
         // Send email
-        await sendPasswordResetEmail(email, user[0].name, resetToken);
+        await sendPasswordResetEmail(email,resetToken);
 
         res.json({ 
             message: 'If this email exists, you will receive a reset link' 
