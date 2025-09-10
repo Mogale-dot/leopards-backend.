@@ -208,7 +208,7 @@ async function sendSignupEmail(toEmail, name) {
 } 
 
 
-async function sendPasswordResetEmail(email, userName, token) {
+async function sendPasswordResetEmail(email, name, token) {
     try {
         const resetUrl = `${process.env.BASE_URL}/reset-password?token=${token}`;
         
@@ -222,7 +222,7 @@ async function sendPasswordResetEmail(email, userName, token) {
                         <img src="upload/logo.png" alt="Black Leopards Academy" style="max-height: 80px;">
                     </div>
                     <h2 style="color: #ff6b00;">Password Reset</h2>
-                    <p>Hello ${userName},</p>
+                    <p>Hello ${name},</p>
                     <p>We received a request to reset your password. Click the button below to proceed:</p>
                     
                     <p style="margin: 25px 0;">
